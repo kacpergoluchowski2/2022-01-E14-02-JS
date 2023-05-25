@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kochamy kawę </title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"> Strona główna </a>
+            <a href="zamowienia.html"> Zamówienia </a>
+            <a href="blog.html"> Blog </a>
+            <a href="http://gatunki-kawy.pl/"> Gatunki kawy </a>
+        </nav>
+        <div id="logo">
+            <img src = "logo.png" alt = "Kawa"/>
+        </div>
+    </header>
+    <div id="banner">
+        <h1> Sklep z kawą </h1>
+    </div>
+    <main>
+        <div id="left">
+            <label for="coffeeNumber"> Podaj numer kawy: </label>
+            <input type="number" id = "coffeeNumber"> <br>
+            <label for="weight"> Podaj wagę w dekagramach: </label>
+            <input type="number" id="weight"> <br>
+            <button onclick = "calculate()"> Zamów </button>
+            <p id = "result"> </p>
+        </div>
+        <div id="right">
+            <h3> Oferta </h3>
+            <ul>
+                <li> Arabica </li>
+                <li> Robusta </li>
+                <li> bezkofeinowa </li>
+                <li> zielona</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p> Stronę przygotował: Kacper Gołuchowski  </p>
+    </footer>
+    <script>
+        function calculate() {
+            let correct = [1,2,4];
+            let prices = [5,7,6]
+            let weight = document.getElementById("weight").value
+            for(let i = 0; i < correct.length; i++)
+            {
+                if(document.querySelector("#coffeeNumber").value == correct[i])
+                {
+                    document.querySelector("#result").innerHTML = `Koszt zamowienia wynosi ${prices[i]*weight} zł`;
+                    return 0;
+                }
+                else
+                {
+                    document.querySelector("#result").innerHTML = "Koszt zamówienia wynosi 0 zł"
+                }
+            }
+        }
+    </script>
+</body>
+</html>
